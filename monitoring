@@ -1,0 +1,12 @@
+scheduler = Rufus::Scheduler.start_new
+
+  scheduler.every '1m' do
+
+    unless #[what goes here?]
+      fork { exec "ar_sendmail -o" }
+      Process.wait
+    end
+
+  end
+
+end

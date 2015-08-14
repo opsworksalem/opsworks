@@ -3,6 +3,7 @@ require 'rufus-scheduler'
 scheduler = Rufus::Scheduler.new
 
 scheduler.every '1m' do
+  puts "okokokok"
   data_dir = value_for_platform(
     "centos" => { "default" => "/srv/www/shared" },
     "ubuntu" => { "default" => "/srv/www/data" },

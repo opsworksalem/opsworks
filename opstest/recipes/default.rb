@@ -1,9 +1,9 @@
 chef_gem 'rufus-scheduler'
 require 'rufus-scheduler'
-scheduler = Rufus::Scheduler.new
+scheduler = Rufus::Scheduler.start_new
 
 scheduler.every '1m' do
-	data_dir = value_for_platform(
+  data_dir = value_for_platform(
     "centos" => { "default" => "/srv/www/shared" },
     "ubuntu" => { "default" => "/srv/www/data" },
     "default" => "/srv/www/config"

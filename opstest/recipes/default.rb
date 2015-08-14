@@ -2,7 +2,7 @@ chef_gem 'rufus-scheduler'
 require 'rufus-scheduler'
 scheduler = Rufus::Scheduler.new
 
-scheduler.cron '* * * * *' do
+scheduler.at '2015/08/14 16:55:00' do
   puts "okokokok"
   data_dir = value_for_platform(
     "centos" => { "default" => "/srv/www/shared" },

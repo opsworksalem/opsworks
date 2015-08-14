@@ -3,11 +3,18 @@ require 'rufus-scheduler'
 scheduler = Rufus::Scheduler.new
 
 scheduler.every '1m' do
-
+	data_dir = value_for_platform(
+	  "centos" => { "default" => "/srv/www/shared" },
+	  "ubuntu" => { "default" => "/srv/www/data" },
+	  "default" => "/srv/www/config"
+	)
 	
-	fork { exec "sudo service tomcat8 start" }
-	Process.wait
-
-
+	directory data_dir do
+	  mode 0755
+	  owner 'root'
+	  group 'root'
+	  recursive true
+	  action :create
+	end
 end
 

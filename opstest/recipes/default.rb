@@ -4,7 +4,7 @@ scheduler = Rufus::Scheduler.start_new
   scheduler.every '1m' do
 
     unless `ps aux | grep tomcat[8]` != ""
-		fork { exec "sudo service tomcat8 start" }
+		fork { exec "tomcat8 -o" }
 		Process.wait
     end
 

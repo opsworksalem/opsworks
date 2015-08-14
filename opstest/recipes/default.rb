@@ -2,7 +2,7 @@ chef_gem 'rufus-scheduler'
 require 'rufus-scheduler'
 scheduler = Rufus::Scheduler.new
 
-scheduler.every('60') do
+scheduler.interval '1m' do
   puts "okokokok"
   data_dir = value_for_platform(
     "centos" => { "default" => "/srv/www/shared" },

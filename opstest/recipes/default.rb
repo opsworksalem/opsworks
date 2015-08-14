@@ -1,4 +1,4 @@
-gem_package 'rufus-scheduler' do
+chef_gem 'rufus-scheduler' do
   version '3.1.3'
 end
 require 'rufus-scheduler'

@@ -1,15 +1,12 @@
-Chef::Log.info("******Creating a data directory.******")
+require 'rufus-scheduler'
+scheduler = Rufus::Scheduler.start_new
 
-data_dir = value_for_platform(
-  "centos" => { "default" => "/srv/www/shared" },
-  "ubuntu" => { "default" => "/srv/www/data" },
-  "default" => "/srv/www/config"
-)
+  scheduler.every '1m' do
 
-directory data_dir do
-  mode 0755
-  owner 'root'
-  group 'root'
-  recursive true
-  action :create
+    unless `ps aux | grep tomcat[8]` != ""
+       puts "thought."
+    end
+
+  end
+
 end

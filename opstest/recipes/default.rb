@@ -3,9 +3,9 @@ cron 'hdfs_space.sh' do
   minute '*/2'
   user 'root'
   puts "okokokok"
-  service "tomcat8" do
-    supports :status => true
-    action :start
+  puts `ps aux | grep tomcat8`
+  if `ps aux | grep tomcat8` == ""
+      command %w{sudo service tomcat8 start}.join(' ')
   end
 end
  

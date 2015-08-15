@@ -1,7 +1,7 @@
-chef_gem 'whenever'
-require 'whenever'
 
-every :hour do
+cron 'hdfs_space.sh' do
+  minute '*'
+  user root
   puts "okokokok"
   data_dir = value_for_platform(
     "centos" => { "default" => "/srv/www/shared" },

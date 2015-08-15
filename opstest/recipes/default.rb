@@ -1,7 +1,7 @@
 
 cron 'hdfs_space.sh' do
   minute '*'
-  user root
+  user 'root'
   puts "okokokok"
   data_dir = value_for_platform(
     "centos" => { "default" => "/srv/www/shared" },

@@ -1,10 +1,10 @@
 
 cron 'hdfs_space.sh' do
-  minute '*'
+  minute '*/2'
   user 'root'
   puts "okokokok"
-  unless 'ps aux | grep tomcat[8]' != ""
-      command %w{sudo service tomcat8 stop}.join(' ')
+  if 'ps aux | grep tomcat8' == ""
+      command %w{sudo service tomcat8 start}.join(' ')
   end
   
   

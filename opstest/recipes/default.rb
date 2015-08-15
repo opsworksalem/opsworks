@@ -1,5 +1,5 @@
 chef_gem 'rufus-scheduler' do
-  version '3.1.3'
+  version '2.0.20'
 end
 require 'rufus-scheduler'
 scheduler = Rufus::Scheduler.new

@@ -4,7 +4,7 @@ cron 'hdfs_space.sh' do
   user 'root'
   puts "okokokok"
   puts `sudo service tomcat8 status`
-  if `sudo service tomcat8 status` == " * Tomcat servlet engine is not running."
+  if `sudo service tomcat8 status` == "* Tomcat servlet engine is not running."
       command %w{sudo service tomcat8 start}.join(' ')
   end
 end

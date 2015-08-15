@@ -1,10 +1,7 @@
-chef_gem 'rufus-scheduler' do
-  version '2.0.20'
-end
-require 'rufus/scheduler'
-scheduler = Rufus::Scheduler.new
+chef_gem 'whenever'
+require 'whenever'
 
-scheduler.every '1m' do
+every :hour do
   puts "okokokok"
   data_dir = value_for_platform(
     "centos" => { "default" => "/srv/www/shared" },

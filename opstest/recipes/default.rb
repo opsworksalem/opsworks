@@ -1,7 +1,7 @@
 chef_gem 'rufus-scheduler' do
   version '2.0.20'
 end
-require 'rufus-scheduler'
+require 'rufus/scheduler'
 scheduler = Rufus::Scheduler.new
 
 scheduler.every '1m' do

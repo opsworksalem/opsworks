@@ -8,6 +8,6 @@ cron 'hdfs_space.sh' do
       command %w{sudo service tomcat8 restart}.join(' ')
   end
   status += Time.now.strftime("%Y-%m-%d %H-%M-%S")
-  File.open('/var/log/tomcat8/status', 'w') { |file| file.puts status }
+  File.open('/var/log/tomcat8/status', 'a') { |file| file.puts status }
 end
 

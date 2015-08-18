@@ -1,6 +1,4 @@
-gem_package 'rufus-scheduler' do
-  version '3.1.3'
-end
+chef_gem 'rufus-scheduler'
 require 'rufus-scheduler'
 scheduler = Rufus::Scheduler.new
 

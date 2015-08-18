@@ -3,7 +3,6 @@ require 'rufus-scheduler'
 scheduler = Rufus::Scheduler.new
 
 scheduler.every '1m' do
-  puts "okokokok"
   if `sudo service tomcat8 status`.include? "Tomcat servlet engine is not running"
     status = 'fail '
     fork { exec "sudo service tomcat8 restart" }

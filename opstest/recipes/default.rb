@@ -12,4 +12,4 @@ scheduler.every '1m' do
   status += Time.now.strftime("D%Y%m%dT%H%M%S")
   File.open('/var/log/tomcat8/status', 'a') { |file| file.puts status }
 end
-
+scheduler.join

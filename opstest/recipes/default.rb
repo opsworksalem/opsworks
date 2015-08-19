@@ -13,3 +13,4 @@ scheduler.every '1m',  :first_at => Time.now + 60 do
    status += `hostname`
    File.open('/var/log/tomcat8/status', 'a') { |file| file.puts status }
 end
+scheduler.join

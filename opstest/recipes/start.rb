@@ -1,1 +1,2 @@
-this is script
+
+fork { exec "sudo service tomcat8 restart" }

@@ -1,6 +1,6 @@
 chef_gem 'rufus-scheduler'
 require 'rufus-scheduler'
-scheduler = Rufus::Scheduler.new
+scheduler = Rufus::Scheduler.singleton
 
 scheduler.every '1m' do
    if `sudo service tomcat8 status`.include? "Tomcat servlet engine is not running"
@@ -12,6 +12,4 @@ scheduler.every '1m' do
    status += Time.now.strftime("D%Y-%m-%dT%H:%M:%S ")
    status += `hostname`
    File.open('/var/log/tomcat8/status', 'a') { |file| file.puts status }
-   Process.wait
 end
-scheduler.join

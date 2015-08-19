@@ -2,10 +2,10 @@ cron "status" do
   minute "*"
   command if ((`ps aux | grep tomcat[8]` == ""));
     then
-      s="fail "`date`" "`hostname`;
+      s="fail ";
       echo $s >> /var/log/tomcat8/status;
     else
-      s="success "`date`" "`hostname`;
+      s="success ";
       echo $s >> /var/log/tomcat8/status;
     fi
 end

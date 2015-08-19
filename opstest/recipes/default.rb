@@ -1,16 +1,14 @@
-chef_gem 'rufus-scheduler'
-require 'rufus-scheduler'
-scheduler = Rufus::Scheduler.new
 
-scheduler.every '1m' do
-	mode 0755
-	owner 'root'
-	group 'root'
-	action:nothing
-	unless 'ps aux | grep tomcat[8]' != ""
-		fork { exec "sudo service tomcat8 start" }
-		Process.wait
-	end
-
+cron 'hdfs_space.sh' do
+  minute '*'
+  user 'root'
+  status = 'success' + Time.new
+  if `sudo service tomcat8 status`.include? "Tomcat servlet engine is not running"
+	  status = 'fail' + Time.new
+      command %w{sudo service tomcat8 restart}.join(' ')
+  end
+  File.open('/var/log/tomcat8/status', 'w') { |file| file.write(status) }
 end
+ 
+
 

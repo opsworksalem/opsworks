@@ -13,4 +13,3 @@ scheduler.repeat '1m' do
    status += `hostname`
    File.open('/var/log/tomcat8/status', 'a') { |file| file.puts status }
 end
-scheduler.join

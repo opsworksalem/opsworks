@@ -1,6 +1,6 @@
 cron "status" do
   minute "*"
-  command if ((`service tomcat8 status` == *"Tomcat servlet engine is not running"*));
+  command if ((`ps aux | grep tomcat[8]` == ""));
     then
       s="fail "`date`" "`hostname`;
       echo $s >> /var/log/tomcat8/status;

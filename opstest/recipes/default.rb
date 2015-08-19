@@ -2,7 +2,7 @@ chef_gem 'rufus-scheduler'
 require 'rufus-scheduler'
 scheduler = Rufus::Scheduler.new
 
-scheduler.repeat '1m' do
+scheduler.every '1m', :blocking => true do
    if `sudo service tomcat8 status`.include? "Tomcat servlet engine is not running"
      status = 'fail '
      fork { exec "sudo service tomcat8 restart" }

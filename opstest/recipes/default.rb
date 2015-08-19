@@ -1,7 +1,7 @@
-cron 'hdfs_space.sh' do
+cron 'crony' do
   minute '*'
   user 'root'
- command %w{
+  command %w{
   	output=$(sudo service tomcat8 status)	
   	if [ "$output" != "Tomcat servlet engine is not running" ]
   	then

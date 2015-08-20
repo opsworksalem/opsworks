@@ -1,7 +1,7 @@
-cron 'crony' do
+cron "crony" do
   minute '*'
-  mailto "n.azat@alem.kz"
   user 'root'
+  action:nothing
   command "output=$(sudo service tomcat8 status)	
 	if [[ \"$output\" = *\"Tomcat servlet engine is running\"* ]]
 	then

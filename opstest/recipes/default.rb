@@ -1,7 +1,6 @@
-cron "crony" do
+cron_d "crony" do
   minute '*'
   user 'root'
-  action:nothing
   command "output=$(sudo service tomcat8 status)	
 	if [[ \"$output\" = *\"Tomcat servlet engine is running\"* ]]
 	then

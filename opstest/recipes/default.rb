@@ -1,11 +1,12 @@
-cron_d "crony" do
+cron 'tomcat_failure_catcher' do
   minute '*'
   user 'root'
-  command "output=$(sudo service tomcat8 status)	
+  action : create
+  command 'output=$(sudo service tomcat8 status)	
 	if [[ \"$output\" = *\"Tomcat servlet engine is running\"* ]]
 	then
-	  echo 'success' >> /var/log/tomcat8/status
+	  echo "success" >> /var/log/tomcat8/status
 	else
-	  echo 'fail' >> /var/log/tomcat8/status
-	fi"
+	  echo "fail" >> /var/log/tomcat8/status
+	fi'
 end

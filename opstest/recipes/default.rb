@@ -1,4 +1,4 @@
-cron 'tomcat_failure_catcher' do
+cron ('tomcat_failure_catcher') do
   minute '*'
   user 'root'
   action :create

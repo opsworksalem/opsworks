@@ -1,7 +1,7 @@
 cron 'tomcat_failure_catcher' do
   minute '*'
   user 'root'
-  action : create
+  action :create
   command 'output=$(sudo service tomcat8 status)	
 	if [[ \"$output\" = *\"Tomcat servlet engine is running\"* ]]
 	then

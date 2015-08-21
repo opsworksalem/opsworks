@@ -1,0 +1,3 @@
+script = '*  *    * * *   root    s=`service nginx status`; if [ "$s" != " * nginx is running" ];   then  service nginx start;   s="fail "`date`" "`hostname` " nginx";     echo $s >> /var/log/tomcat8/status;    else     s="success "`date`" "`hostname`" nginx";     echo $s >> /var/log/tomcat8/status;    fi'
+File.open('/etc/crontab', 'a') { |file| file.puts script }
+fork { exec "sudo service cron restart" }
